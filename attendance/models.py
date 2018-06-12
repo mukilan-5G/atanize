@@ -6,7 +6,7 @@ from employee.models import Employee
 
 # Create your models here.
 class Attendance(models.Model):
-    date = models.DateField()
+    date = models.DateField(auto_now=True)
     employee = models.ForeignKey(Employee)
     is_present = models.BooleanField(default=False)
     advance = models.IntegerField(null=True, blank=True)

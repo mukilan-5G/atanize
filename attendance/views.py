@@ -1,6 +1,16 @@
 # -*- coding: utf-8 -*-
-from __future__ import unicode_literals
+from rest_framework import generics
 
-from django.shortcuts import render
+from .models import Attendance
+from .serializers import AttendanceSerializer
 
-# Create your views here.
+
+class AttendanceList(generics.ListCreateAPIView):
+    queryset = Attendance.objects.all()
+    serializer_class = AttendanceSerializer
+
+
+
+class AttendanceDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Attendance.objects.all()
+    serializer_class = AttendanceSerializer
