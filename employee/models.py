@@ -20,7 +20,7 @@ class Employee(models.Model):
     name = models.CharField(max_length=60)
     phone_no = models.CharField(max_length=60, unique=True)
     address = models.TextField()
-    is_active = models.BooleanField(default=False)
+    is_active = models.BooleanField(default=True)
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
     created_by = models.ForeignKey(User)
