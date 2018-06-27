@@ -8,8 +8,8 @@ from django.contrib.auth.models import User
 class TypeOfWork(models.Model):
     type = models.CharField(max_length=60)
     base_salary = models.IntegerField()
-    created_on = models.DateTimeField(auto_now=True)
-    updated_on = models.DateTimeField()
+    created_on = models.DateTimeField(auto_now_add=True)
+    updated_on = models.DateTimeField(auto_now=True)
     created_by = models.ForeignKey(User)
 
     class Meta:
@@ -18,11 +18,11 @@ class TypeOfWork(models.Model):
 
 class Employee(models.Model):
     name = models.CharField(max_length=60)
-    phone_no = models.CharField(max_length=60)
+    phone_no = models.CharField(max_length=60, unique=True)
     address = models.TextField()
     is_active = models.BooleanField(default=False)
-    created_on = models.DateTimeField(auto_now=True)
-    updated_on = models.DateTimeField()
+    created_on = models.DateTimeField(auto_now_add=True)
+    updated_on = models.DateTimeField(auto_now=True)
     created_by = models.ForeignKey(User)
     type_of_work = models.ForeignKey(TypeOfWork)
 
